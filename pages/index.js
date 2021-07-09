@@ -18,7 +18,8 @@ const HomePage = (props) => {
 };
 export async function getStaticProps() {
   const client = await MongoClient.connect(
-    "mongodb+srv://admin-shashank:admin123@cluster0.8sqig.mongodb.net/meetupDB"
+    "mongodb+srv://admin-shashank:admin123@cluster0.8sqig.mongodb.net/meetupDB",
+    { useUnifiedTopology: true }
   );
   const db = client.db();
   const meetupCollection = db.collection("meetups");
